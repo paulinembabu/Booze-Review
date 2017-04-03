@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "600206463175",
+    "firebase_url": "https://booze-f8fe7.firebaseio.com",
+    "project_id": "booze-f8fe7",
+    "storage_bucket": "booze-f8fe7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600206463175:android:5ea570e06f388e1c",
+        "android_client_info": {
+          "package_name": "com.example.pauline.booze"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600206463175-rq1i1c886akuum0vls8umvd2oe3oaiau.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.pauline.booze",
+            "certificate_hash": "1de463fd040bc9d88c72bc980d03d99b58dcc0b5"
+          }
+        },
+        {
+          "client_id": "600206463175-s5mgjlen45pu67vnto598mno11kvk6ju.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqMdaHjr_EhnQ5nK0yLvHnRZWICKK_x3c"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600206463175-s5mgjlen45pu67vnto598mno11kvk6ju.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
