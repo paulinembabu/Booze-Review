@@ -1,6 +1,5 @@
 package com.example.pauline.booze;
 
-import android.app.DownloadManager;
 import android.content.pm.LauncherApps;
 import android.util.Log;
 
@@ -9,7 +8,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.security.Key;
 import java.util.ArrayList;
 
 import okhttp3.Call;
@@ -19,36 +17,26 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.example.pauline.booze.BeerService.url;
 
-public class BeerService {
+/**
+ * Created by pauline on 4/5/17.
+ */
 
-    public static String key = Constants.KEY;
-    public static String abv = Constants.ABV;
-    public static String url = Constants.URL;
+public class SearchService {
 
-
-    public static void findBeers(Callback callback) {
-
-        OkHttpClient client = new OkHttpClient();
-
-        HttpUrl.Builder urlBuilder = HttpUrl.parse(url).newBuilder();
-        urlBuilder.addQueryParameter(Constants.QueryKEY, key).addQueryParameter(Constants.QueryABV, abv);
-        String url = urlBuilder.build().toString();
-
-        Request request = new Request.Builder().url(url).build();
-
-        Call call = client.newCall(request);
-        call.enqueue(callback);
-        Log.d(BeerService.class.getSimpleName(), "calling");
-
-
-
-
+    public static void searchBeer(String input, Callback callback){
+        OkHttpClient client1 = new OkHttpClient();
+        HttpUrl.Builder urlBuild = HttpUrl.parse(url).newBuilder();
+        urlBuild.addQueryParameter(Constants.QueryQ,input).addQueryParameter(Constants.QueryTYPE,Constants.TYPE).addQueryParameter(Constants.QueryKEY,Constants.KEY);
+        String url = urlBuild.build().toString();
+        Request request1 = new Request.Builder().url(url).build();
+        Call call1 = client1.newCall(request1);
+        call1.enqueue(callback);
 
     }
 
-
-    public ArrayList<Beer> processResult(Response response) {
+    public ArrayList<Beer> processSearchResult(Response response) {
         ArrayList<Beer> beer = new ArrayList<>();
 
         try {
@@ -77,5 +65,6 @@ public class BeerService {
 
 
     }
+
 
 }

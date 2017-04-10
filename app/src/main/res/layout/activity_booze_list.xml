@@ -1,50 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="horizontal"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:paddingBottom="16dp"
-    android:paddingLeft="16dp"
-    android:paddingTop="16dp"
-    android:paddingRight="16dp"
     tools:context="com.example.pauline.booze.BoozeList">
 
-    <!--<RelativeLayout-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent">-->
-        <!---->
-    <!--<android.support.v7.widget.RecyclerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:id="@+id/recyclerView"/>-->
+    <android.support.v7.widget.CardView
+        android:layout_width="150dp"
+        android:layout_height="200dp"
+        app:cardElevation="@dimen/cardview_default_elevation"
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:layout_gravity="center"
+        app:cardCornerRadius="@dimen/cardview_default_radius">
 
-    <!--<ListView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentRight="true"-->
-        <!--android:layout_alignParentEnd="true"-->
-        <!--android:id="@+id/listView">-->
-    <!--</ListView>-->
-        <!---->
-    <!--</RelativeLayout>-->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="#fff"
+            android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:id="@+id/beerImageView"
+            android:src="@drawable/beer1"
+            android:scaleType="centerCrop"/>
 
 
-    <ImageView
-    android:layout_width="130dp"
-    android:layout_height="100dp"
-    android:id="@+id/beerImageView"
-    android:src="@drawable/beer"
-    android:scaleType="centerCrop"/>
-
-<LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:background="#ffffff"
-    android:layout_height="match_parent"
-    android:padding="10dp">
 
 
 
@@ -52,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/beerNameTextView"
-        android:textSize="20dp"
+        android:textSize="15sp"
         android:textStyle="bold"
         android:text="Beer Name"
         android:textColor="@color/colorPrimaryDark"/>
@@ -67,15 +52,15 @@
         <!--android:layout_alignParentStart="true"-->
         <!--android:textStyle="italic"/>-->
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Aquired Taste"
-        android:id="@+id/description"
-        android:layout_below="@+id/categoryTextView"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:textStyle="italic"/>
+    <!--<TextView-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Aquired Taste"-->
+        <!--android:id="@+id/description"-->
+        <!--android:layout_below="@+id/categoryTextView"-->
+        <!--android:layout_alignParentLeft="true"-->
+        <!--android:layout_alignParentStart="true"-->
+        <!--android:textStyle="italic"/>-->
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -91,5 +76,6 @@
             android:textColor="@color/colorAccent"/>
     </RelativeLayout>
 </LinearLayout>
+    </android.support.v7.widget.CardView>
 
     </LinearLayout>

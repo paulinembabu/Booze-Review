@@ -14,103 +14,95 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import org.parceler.Parcels;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
+import static java.security.AccessController.getContext;
+
 /**
  * Created by pauline on 4/3/17.
  */
 
-public class boozeDetails extends AppCompatActivity implements View.OnClickListener  {
+public class boozeDetails extends AppCompatActivity implements View.OnClickListener {
 
 
-    @Bind(R.id.categoryTextView) TextView mNameDetails;
-    @Bind(R.id.description) TextView mDescription;
-    @Bind(R.id.beerNameTextView) TextView mName;
-    @Bind(R.id.beerImageView) ImageView mImage;
-    @Bind(R.id.ratingTextView) TextView mRating;
-    @Bind(R.id.reviewbeer) TextView mReviewBeerTextView;
-    @Bind(R.id.reviewTextView) EditText mReviewBeerEditText;
-    @Bind(R.id.saveReviewButton) Button mButton;
-    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
+    //@Bind(R.id.categoryTextView) TextView mNameDetails;
+    @Bind(R.id.description)
+    TextView mDescription;
+    @Bind(R.id.beerNameTextView)
+    TextView mName;
+    @Bind(R.id.beerImageView)
+    ImageView mImage;
+    @Bind(R.id.ratingTextView)
+    TextView mRating;
+    @Bind(R.id.reviewbeer)
+    TextView mReviewBeerTextView;
+    @Bind(R.id.reviewTextView)
+    EditText mReviewBeerEditText;
+    @Bind(R.id.saveReviewButton)
+    Button mButton;
 
 
-//    public  static boozeDetails newInstance (Beer beer){
-//        boozeDetails newboozeDetailsFragment = new boozeDetails();
-//        Bundle args = new Bundle();
-//        args.putParcelable("beer", Parcels.wrap(beer));
-//        newboozeDetailsFragment.setArguments(args);
-//        return  newboozeDetailsFragment;
-//    }
-
-    public static  final  String TAG = boozeDetails.class.getSimpleName();
+    public static final String TAG = boozeDetails.class.getSimpleName();
 
 
-    private ArrayList<Beer> mBeer= new ArrayList<>();
+    private ArrayList<Beer> mBeer = new ArrayList<>();
+    String stringName;
 
-    private Context mContext;
 
-
-//    public boozeDetails(Context context, ArrayList<Beer> beer) {
-//        mContext = context;
-//        mBeer=beer;
-//    }
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booze_details);
+        ButterKnife.bind(this);
 
 
-        int currentPosition = getIntent().getIntExtra("position",0);
-        mBeer = Parcels.unwrap(getIntent().getParcelableExtra("beer"));
+        int currentPosition = getIntent().getIntExtra("position", 0);
+        mBeer = Parcels.unwrap(getIntent().getParcelableExtra("beer1"));
 
 
-       String string = mBeer.get(currentPosition).getName();
+        stringName = mBeer.get(currentPosition).getName();
 
-        Log.d(TAG, ">>>>>>" + string);
+        String stringDescription = mBeer.get(currentPosition).getDescription();
+        int image = mBeer.get(currentPosition).getImage();
 
-
+        mName.setText(stringName);
+        mDescription.setText(stringDescription);
+        mImage.setImageResource(image);
 
 
 
     }
-
-
-
-
-
-//
-//    @Override
-//    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)  {
-//        View view = inflater.inflate(R.layout.activity_booze_detail , container, false);
-//        ButterKnife.bind(this, view);
-//
-//        mName.setText(mBeer[position].getName());
-//        mDescription.setText(mBeer.getDescription());
-//
-//        mButton.setOnClickListener(this);
-//
-//        return view;
-//
-//    }
 
     @Override
     public void onClick(View v) {
+
         if (v == mButton) {
-//            DatabaseReference boozeRef = FirebaseDatabase
-//                    .getInstance()
-//                    .getReference(Constants.FIREBASE_CHILD_RESTAURANTS);
-//            boozeRef.push().setValue(mBeer);
-//            Toast.makeText(getContext(), "Saved", Toast.LENGTH_SHORT).show();
+            Log.d("log this",stringName);
+            String review = mReviewBeerEditText.getText().toString();
+
+            DatabaseReference boozeRef = FirebaseDatabase
+                    .getInstance()
+                    .getReference().child(stringName);
+
+            boozeRef.push().setValue(review);
+
+
         }
     }
 
-}
+    }
+
 

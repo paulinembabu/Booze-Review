@@ -1,24 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<RelativeLayout
+<android.support.design.widget.CoordinatorLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context="com.example.pauline.booze.boozeDetails">
 
 
-<LinearLayout
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:background="@color/colorPrimary">
+
+
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="180dp"
-        android:id="@+id/restaurantImageView"
-        android:src="@drawable/beer"
+        android:layout_height="wrap_content"
+        android:id="@+id/beerImageView"
+        android:src="@drawable/beer1"
         android:scaleType="centerCrop" />
 
     <RelativeLayout
@@ -34,6 +40,19 @@ xmlns:android="http://schemas.android.com/apk/res/android"
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:text="4.5/5"
+            android:paddingTop="0sp"
+            android:id="@+id/ratingTextView"
+            android:layout_alignTop="@+id/beerNameTextView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/colorAccent"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="Bear Name"
             android:id="@+id/beerNameTextView"
             android:layout_alignParentLeft="true"
@@ -42,16 +61,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="4.5/5"
-            android:id="@+id/ratingTextView"
-            android:layout_alignTop="@+id/beerNameTextView"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentEnd="true"
-            android:textColor="@color/colorAccent"
-            android:textStyle="bold" />
 
 
         <!--<TextView-->
@@ -78,69 +87,63 @@ xmlns:android="http://schemas.android.com/apk/res/android"
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
+        <RelativeLayout
             android:orientation="vertical"
-            android:layout_width="match_parent"            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:layout_above="@+id/saveReviewButton"
-            android:paddingLeft="30dp"
-            android:paddingTop="20dp"
-            android:paddingRight="30dp">
+            android:layout_width="wrap_content"                                         android:layout_height="250dp"
+            android:paddingLeft="30dp">
+
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="60dp"
                 android:text="REVIEW BEER"
                 android:id="@+id/reviewbeer"
-                android:drawablePadding="4dp"
                 android:textColor="#fff"
                 android:textAlignment="center"
                 android:textSize="35dp"
                 android:paddingLeft="45dp"
                 android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:gravity="center" />
+                android:gravity="center"
+                android:layout_alignParentBottom="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp" />
+
 
             <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
                 android:hint="Enter Text"
+                android:textAlignment="center"
                 android:id="@+id/reviewTextView"
-                android:drawablePadding="4dp"
-                android:textColor="#000000"
-                android:background="#ffff"
+                android:textColor="#000"
+                android:background="#fff"
                 android:textSize="15sp"
-                android:width="300dp"
-                android:height="70dp"
                 android:textStyle="bold"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"/>
+                android:layout_centerHorizontal="true"
+                android:layout_below="@+id/reviewbeer" />
+
+            <Button
+                android:id="@+id/saveReviewButton"
+                android:layout_width="match_parent"
+                android:layout_alignBottom="@+id/reviewTextView"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:background="@color/colorAccent"
+                android:backgroundTint="#000"
+                android:text="REVIEW"
+                android:textColor="#fff"
+                android:textSize="20sp"/>
 
 
-        </LinearLayout>
+        </RelativeLayout>
 
-        <Button
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REVIEW"
-            android:backgroundTint="#000000"
-            android:id="@+id/saveReviewButton"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorAccent"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="30dp"
-            android:layout_marginRight="30dp"
-            android:textColor="#fff"
-            android:textSize="15sp" />
-    </RelativeLayout>
+
 </LinearLayout>
 
+    </ScrollView>
 
-</RelativeLayout>
+</android.support.design.widget.CoordinatorLayout>
 

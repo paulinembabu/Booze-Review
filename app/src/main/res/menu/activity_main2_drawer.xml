@@ -1,21 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <item
-        android:id="@+id/action_search"
-        android:icon="@drawable/ic_search_black_24dp"
-        app:showAsAction="always"
-        app:actionViewClass="android.support.v7.widget.SearchView"
-        android:title="Search">
-    </item>
-
-    <item
-        android:id="@+id/action_logout"
-        android:title="Logout"
-        android:visible="true"
-        app:showAsAction="never"/>
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <group android:checkableBehavior="single">
-
         <item
             android:id="@+id/nav_camera"
             android:icon="@drawable/ic_menu_camera"
@@ -24,6 +12,14 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Gallery" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Slideshow" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Tools" />
     </group>
 
     <item android:title="Communicate">
@@ -39,4 +35,5 @@
 
         </menu>
     </item>
+
 </menu>

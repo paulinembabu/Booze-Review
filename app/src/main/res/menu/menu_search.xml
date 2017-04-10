@@ -12,7 +12,7 @@
         android:id="@+id/action_logout"
         android:title="Logout"
         android:visible="true"
-        app:showAsAction="never"/>
+        app:showAsAction="never" />
 
     <group android:checkableBehavior="single">
 
@@ -27,16 +27,16 @@
     </group>
 
     <item android:title="Communicate">
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
-            <item
-                android:id="@+id/nav_send"
-                android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+    <menu>
+        <item
+            android:id="@+id/nav_share"
+            android:icon="@drawable/ic_menu_share"
+            android:title="Share" />
+        <item
+            android:id="@+id/nav_send"
+            android:icon="@drawable/ic_menu_send"
+            android:title="Send" />
 
-        </menu>
+    </menu>
     </item>
 </menu>
