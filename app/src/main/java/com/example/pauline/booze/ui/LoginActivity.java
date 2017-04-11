@@ -1,4 +1,4 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.ui;
 
 import android.app.ProgressDialog;
 import android.content.Intent;
@@ -56,12 +56,22 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
                     startActivity(intent);
                     finish();
+
+                    String name = user.getDisplayName();
+                    String email = user.getEmail();
+                    Intent intent2 = new Intent(LoginActivity.this,userProfile.class);
+                    intent2.putExtra("name",name);
+                    intent2.putExtra("email",email);
+                    startActivity(intent2);
+
+
                 }
             }
         };
 
         createAuthProgressDialog();
     }
+
 
 
     @Override

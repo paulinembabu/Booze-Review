@@ -1,4 +1,4 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.pauline.booze.R;
+import com.example.pauline.booze.model.Beer;
+import com.example.pauline.booze.ui.boozeDetails;
 
 import org.parceler.Parcels;
 

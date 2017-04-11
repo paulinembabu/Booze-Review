@@ -9,7 +9,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="100dp"
-    tools:context="com.example.pauline.booze.LoginActivity"
+    tools:context="com.example.pauline.booze.ui.LoginActivity"
     android:background="@drawable/booze2">
 
 <ScrollView

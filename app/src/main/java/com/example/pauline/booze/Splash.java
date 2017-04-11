@@ -3,9 +3,9 @@ package com.example.pauline.booze;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.app.Activity;
 import android.os.Handler;
+
+import com.example.pauline.booze.ui.LoginActivity;
 
 
 public class Splash extends AppCompatActivity {

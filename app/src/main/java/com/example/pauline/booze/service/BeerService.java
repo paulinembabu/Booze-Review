@@ -1,15 +1,15 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.service;
 
-import android.app.DownloadManager;
-import android.content.pm.LauncherApps;
 import android.util.Log;
+
+import com.example.pauline.booze.Constants;
+import com.example.pauline.booze.model.Beer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.security.Key;
 import java.util.ArrayList;
 
 import okhttp3.Call;

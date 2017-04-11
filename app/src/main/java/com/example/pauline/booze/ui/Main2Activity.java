@@ -1,15 +1,12 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.ui;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.view.MenuItemCompat;
-import android.support.v7.view.menu.MenuView;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
@@ -23,9 +20,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.EditText;
 import android.widget.ListView;
 
+import com.example.pauline.booze.adapters.BoozeListAdapter;
+import com.example.pauline.booze.R;
+import com.example.pauline.booze.model.Beer;
+import com.example.pauline.booze.service.BeerService;
+import com.example.pauline.booze.service.SearchService;
 import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.IOException;
@@ -44,6 +45,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
     ListView mListView;
     @Bind(R.id.recyclerView)
     RecyclerView mRecyclerView;
+
+   public String input;
 
 
 
@@ -105,18 +108,17 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        if (id == R.id.nav_beerList) {
+            Intent intent = new Intent(Main2Activity.this,Main2Activity.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_profile) {
+            Intent intent = new Intent(Main2Activity.this,userProfile.class);
+            startActivity(intent);
 
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_reviewBeer) {
+            Intent intent = new Intent(Main2Activity.this,ReviewedBeers.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -126,7 +128,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
 
     public void getBeer(){
-        final BeerService  beerService = new BeerService();
+        final BeerService beerService = new BeerService();
         beerService.findBeers(new Callback() {
 
             @Override
@@ -234,6 +236,7 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
         ButterKnife.bind(this);
 
         MenuItem menuItem = menu.findItem(R.id.action_search);
+
         SearchView searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
         searchView.setSubmitButtonEnabled(true);
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -251,6 +254,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
 
         });
         return true;
+
+
 
     }
 

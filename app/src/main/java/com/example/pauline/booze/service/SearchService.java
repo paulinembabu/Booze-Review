@@ -1,7 +1,7 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.service;
 
-import android.content.pm.LauncherApps;
-import android.util.Log;
+import com.example.pauline.booze.Constants;
+import com.example.pauline.booze.model.Beer;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -17,8 +17,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.example.pauline.booze.BeerService.url;
-
 /**
  * Created by pauline on 4/5/17.
  */
@@ -27,7 +25,7 @@ public class SearchService {
 
     public static void searchBeer(String input, Callback callback){
         OkHttpClient client1 = new OkHttpClient();
-        HttpUrl.Builder urlBuild = HttpUrl.parse(url).newBuilder();
+        HttpUrl.Builder urlBuild = HttpUrl.parse(BeerService.url).newBuilder();
         urlBuild.addQueryParameter(Constants.QueryQ,input).addQueryParameter(Constants.QueryTYPE,Constants.TYPE).addQueryParameter(Constants.QueryKEY,Constants.KEY);
         String url = urlBuild.build().toString();
         Request request1 = new Request.Builder().url(url).build();

@@ -2,10 +2,11 @@
 
 <android.support.design.widget.CoordinatorLayout
 xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context="com.example.pauline.booze.boozeDetails">
+    tools:context="com.example.pauline.booze.ui.boozeDetails">
 
 
     <ScrollView
@@ -85,6 +86,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:textColor="#000000"
             android:textStyle="italic" />
 
+
     </RelativeLayout>
 
         <RelativeLayout
@@ -111,6 +113,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_marginStart="20dp" />
 
 
+
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
@@ -124,10 +127,44 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:layout_centerHorizontal="true"
                 android:layout_below="@+id/reviewbeer" />
 
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="144dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <android.support.v7.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/recyclerView2">
+
+                    </android.support.v7.widget.RecyclerView>
+
+
+                <ListView
+                    android:id="@+id/listView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@+id/reviewTextView"
+                    android:layout_alignLeft="@+id/saveReviewButton"
+                    android:layout_alignStart="@+id/saveReviewButton"
+                    android:layout_below="@+id/reviewTextView" />
+
+                </LinearLayout>
+            </ScrollView>
+
+
+
             <Button
                 android:id="@+id/saveReviewButton"
                 android:layout_width="match_parent"
-                android:layout_alignBottom="@+id/reviewTextView"
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_centerHorizontal="true"
@@ -136,6 +173,8 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                 android:text="REVIEW"
                 android:textColor="#fff"
                 android:textSize="20sp"/>
+
+
 
 
         </RelativeLayout>

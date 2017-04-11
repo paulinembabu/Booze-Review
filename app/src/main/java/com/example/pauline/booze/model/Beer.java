@@ -1,4 +1,6 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.model;
+
+import com.example.pauline.booze.R;
 
 import org.parceler.Parcel;
 
@@ -16,7 +18,7 @@ public class Beer {
     //private String  mNameDisplay;
    public String description;
 
-    int image=R.drawable.beer1;
+    int image= R.drawable.beer1;
     int image1 = R.drawable.beer1;
     int image2 =R.drawable.beer2;
     int image3 = R.drawable.beer3;

@@ -1,18 +1,15 @@
-package com.example.pauline.booze;
+package com.example.pauline.booze.ui;
 
-import android.content.SharedPreferences;
-import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.view.ActionMode;
 import android.support.v7.widget.GridLayoutManager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import com.example.pauline.booze.adapters.BoozeListAdapter;
+import com.example.pauline.booze.R;
+import com.example.pauline.booze.model.Beer;
+import com.example.pauline.booze.service.BeerService;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -53,7 +50,7 @@ public class  BoozeList extends AppCompatActivity {
     }
 
     public void getBeer(){
-        final BeerService  beerService = new BeerService();
+        final BeerService beerService = new BeerService();
         beerService.findBeers(new Callback() {
 
             @Override
