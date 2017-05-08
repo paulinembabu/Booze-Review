@@ -20,6 +20,7 @@
             android:theme="@style/NoAppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -31,8 +32,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.pauline.booze.Splash" />
         </activity>
-        <activity android:name=".ui.BoozeList"></activity>
-
+        <activity android:name=".ui.BoozeList" />
         <activity
             android:name=".ui.boozeDetails"
             android:parentActivityName=".ui.Main2Activity">
@@ -41,7 +41,7 @@
                 android:value="com.example.pauline.booze.ui.Main2Activity" />
         </activity>
         <activity
-            android:name=".ui.userProfile"
+            android:name=".ui.ListReviewedBeers"
             android:parentActivityName=".ui.Main2Activity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

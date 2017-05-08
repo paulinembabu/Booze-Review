@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context="com.example.pauline.booze.ui.ReviewedBeers">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary">
+
+
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/beerImageView"
+                android:src="@drawable/beer1"
+                android:scaleType="centerCrop" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:paddingTop="20dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:paddingBottom="20dp">
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Rate the beer"
+                    android:paddingTop="0sp"
+                    android:id="@+id/ratingTextView"
+                    android:layout_alignTop="@+id/beerNameTextView"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentEnd="true"
+                    android:textColor="@color/colorAccent"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint=" Enter Bear Name"
+                    android:id="@+id/beerNameTextView"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold" />
+
+
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:hint="Enter Description "
+                    android:id="@+id/description"
+                    android:layout_below="@+id/beerNameTextView"
+                    android:textColor="#000"
+                    android:textStyle="italic" />
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:orientation="vertical"
+                android:layout_width="wrap_content"                                         android:layout_height="250dp"
+                android:paddingLeft="30dp">
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:text="REVIEW BEER"
+                    android:id="@+id/reviewbeer"
+                    android:textColor="#fff"
+                    android:textAlignment="center"
+                    android:textSize="35dp"
+                    android:paddingLeft="45dp"
+                    android:textStyle="bold"
+                    android:gravity="center"
+                    android:layout_alignParentBottom="false"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginStart="20dp" />
+
+
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:hint="Enter Text"
+                    android:textAlignment="center"
+                    android:id="@+id/reviewTextView"
+                    android:textColor="#000"
+                    android:background="#fff"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_below="@+id/reviewbeer" />
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="144dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/listView1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignBottom="@+id/reviewTextView"
+                            android:layout_alignLeft="@+id/saveReviewButton"
+                            android:layout_alignStart="@+id/saveReviewButton"
+                            android:layout_below="@+id/reviewTextView" />
+
+                    </LinearLayout>
+                </ScrollView>
+
+
+
+                <Button
+                    android:id="@+id/saveReviewButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:background="@color/colorAccent"
+                    android:backgroundTint="#000"
+                    android:text="REVIEW"
+                    android:textColor="#fff"
+                    android:textSize="20sp"/>
+
+
+
+
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</android.support.design.widget.CoordinatorLayout>
+

@@ -41,10 +41,8 @@ import okhttp3.Response;
 public class Main2Activity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
 
-    @Bind(R.id.listView)
-    ListView mListView;
-    @Bind(R.id.recyclerView)
-    RecyclerView mRecyclerView;
+    @Bind(R.id.listView) ListView mListView;
+    @Bind(R.id.recyclerView) RecyclerView mRecyclerView;
 
    public String input;
 
@@ -112,8 +110,8 @@ public class Main2Activity extends AppCompatActivity implements NavigationView.O
             Intent intent = new Intent(Main2Activity.this,Main2Activity.class);
             startActivity(intent);
 
-        } else if (id == R.id.nav_profile) {
-            Intent intent = new Intent(Main2Activity.this,userProfile.class);
+        } else if (id == R.id.listReviewedBeers) {
+            Intent intent = new Intent(Main2Activity.this,ListReviewedBeers.class);
             startActivity(intent);
 
         } else if (id == R.id.nav_reviewBeer) {

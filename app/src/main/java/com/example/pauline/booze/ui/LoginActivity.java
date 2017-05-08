@@ -57,12 +57,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     startActivity(intent);
                     finish();
 
-                    String name = user.getDisplayName();
-                    String email = user.getEmail();
-                    Intent intent2 = new Intent(LoginActivity.this,userProfile.class);
-                    intent2.putExtra("name",name);
-                    intent2.putExtra("email",email);
-                    startActivity(intent2);
+//                    String name = user.getDisplayName();
+//                    String email = user.getEmail();
+//                    Intent intent2 = new Intent(LoginActivity.this,userProfile.class);
+//                    intent2.putExtra("name",name);
+//                    intent2.putExtra("email",email);
+//                    startActivity(intent2);
 
 
                 }

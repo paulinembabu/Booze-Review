@@ -53,12 +53,8 @@ public class boozeDetails extends AppCompatActivity implements View.OnClickListe
     @Bind(R.id.saveReviewButton)
     Button mButton;
     @Bind(R.id.listView1)
-    ListView mListView;
-    @Bind(R.id.recyclerView2)
-    RecyclerView mRecyclerView2;
+    TextView mListView;
 
-    private DatabaseReference mBeerReference;
-    public String value;
 
 
     public static final String TAG = boozeDetails.class.getSimpleName();
@@ -89,6 +85,8 @@ public class boozeDetails extends AppCompatActivity implements View.OnClickListe
         mImage.setImageResource(image);
         mButton.setOnClickListener(this);
 
+      //  getReviewed(stringName);
+
 
     }
 
@@ -98,70 +96,31 @@ public class boozeDetails extends AppCompatActivity implements View.OnClickListe
         if (v == mButton) {
             String review = mReviewBeerEditText.getText().toString();
 
-
             DatabaseReference boozeRef = FirebaseDatabase
                     .getInstance()
-                    .getReference().child(stringName);
+                    .getReference("beers").child(stringName);
 
 
-            boozeRef.push().setValue(review);
+            boozeRef.child("review").push().setValue(review);
 
 
             Toast.makeText(boozeDetails.this, "saved", Toast.LENGTH_SHORT).show();
 
+            mReviewBeerEditText.setText("");
+
+                   getReviewed(stringName);
 
         }
     }
 
 
-    public void getReviewed() {
-        ArrayList<String> myStringArray1 = new ArrayList<String>();
+    public void getReviewed(final String stringName) {
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("beers").child(stringName);
 
-        ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, myStringArray1);
-
-        myStringArray1.add(value);
-
-        mListView.setAdapter(adapter);
-
-
-        mBeerReference = FirebaseDatabase.getInstance().getReference().child(stringName);
-//        Log.d(TAG,">>>>"+mBeerReference);
-
-        ChildEventListener childEventListener = new ChildEventListener() {
-
-
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
-            public void onChildAdded(DataSnapshot dataSnapshot,String stringName) {
-                String value = (String) dataSnapshot.getValue();
-                Log.d(TAG,">>>>>>" + value);
-
-
-            }
-
-//            @Override
-//            public void onDataChange(DataSnapshot dataSnapshot) {
-//                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-//                    String value = (String) snapshot.getValue();
-//                    Log.d(TAG, "heeeeeer" + value);
-//
-//
-//
-//                }
-//
-//
-//            }
-
-//            @Override
-//            public void onCancelled(DatabaseError databaseError) {
-//            }
-//
-//
-//        });
-
-//    }
-
-            @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
+            public void onDataChange(DataSnapshot dataSnapshot) {
+               mListView.setText(dataSnapshot.child("review").getValue().toString());
 
             }
 
@@ -169,19 +128,7 @@ public class boozeDetails extends AppCompatActivity implements View.OnClickListe
             public void onCancelled(DatabaseError databaseError) {
 
             }
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String previousChildName) {
-
-            }
-
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String previousChildName) {
-
-            }
-
-
-        };
-        mBeerReference.addChildEventListener(childEventListener);
+        });
     }
 }
 

@@ -52,7 +52,6 @@ public class FirebaseBoozeViewHolder extends RecyclerView.ViewHolder implements 
     Button mButton;
     @Bind(R.id.listView1)
     ListView mListView;
-    @Bind(R.id.recyclerView2) RecyclerView mRecyclerView;
 
 
     public FirebaseBoozeViewHolder(View itemView) {

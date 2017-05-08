@@ -5,11 +5,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.pauline.booze.adapters.FirebaseBoozeViewHolder;
 import com.example.pauline.booze.R;
@@ -28,76 +30,54 @@ import butterknife.ButterKnife;
  * Created by pauline on 4/11/17.
  */
 
-public class ReviewedBeers extends AppCompatActivity{
+public class ReviewedBeers extends AppCompatActivity implements View.OnClickListener{
 
     public  static  final String TAG = ReviewedBeers.class.getSimpleName();
 
 
-    private DatabaseReference mBeerReference;
-    private FirebaseRecyclerAdapter mFirebaseAdapter;
 
-    @Bind(R.id.description) TextView mDescription;
-    @Bind(R.id.beerNameTextView) TextView mName;
+
+    @Bind(R.id.description) EditText mDescription;
+    @Bind(R.id.beerNameTextView) EditText mName;
     @Bind(R.id.beerImageView) ImageView mImage;
-    @Bind(R.id.ratingTextView) TextView mRating;
+    @Bind(R.id.ratingTextView) EditText mRating;
     @Bind(R.id.reviewbeer) TextView mReviewBeerTextView;
     @Bind(R.id.reviewTextView) EditText mReviewBeerEditText;
     @Bind(R.id.saveReviewButton) Button mButton;
-    @Bind(R.id.listView1) ListView mListView;
-    @Bind(R.id.recyclerView2) RecyclerView mRecyclerView;
+    @Bind(R.id.listView1) TextView mListView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_booze_details);
+        setContentView(R.layout.activity_booze_details_review);
         ButterKnife.bind(this);
-
-        mBeerReference = FirebaseDatabase.getInstance().getReference("booze-f8fe7");
-        Log.d(TAG,">>>>>>" + mBeerReference);
-
-        mBeerReference.addListenerForSingleValueEvent(new ValueEventListener() {
-
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()){
-                    String value= (String) snapshot.getValue();
-                    Log.d(TAG,"heeeeeer"+ value);
-                }
+        mButton.setOnClickListener(this);
 
 
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-            }
-        });
-
-        setUpFirebaseAdapter();
     }
 
 
 
 
-    private void setUpFirebaseAdapter() {
-        mFirebaseAdapter = new FirebaseRecyclerAdapter<Beer, FirebaseBoozeViewHolder>
-                (Beer.class, R.layout.activity_booze_details, FirebaseBoozeViewHolder.class,
-                        mBeerReference) {
-
-            @Override
-            protected void populateViewHolder(FirebaseBoozeViewHolder viewHolder,
-                                              Beer model, int position) {
-                viewHolder.bindBooze(model);
-            }
-        };
-        mRecyclerView.setHasFixedSize(true);
-        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        mRecyclerView.setAdapter(mFirebaseAdapter);
-    }
 
     @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        mFirebaseAdapter.cleanup();
+    public void onClick(View v) {
+
+        if (v == mButton) {
+             String name =   mName.getText().toString();
+            String review = mReviewBeerEditText.getText().toString();
+            String rate = mRating.getText().toString();
+            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("beers").child(name);
+                        reference.child("review").setValue(review);
+
+
+            Toast.makeText(ReviewedBeers.this, "saved", Toast.LENGTH_SHORT).show();
+            mName.setText("");
+            mReviewBeerEditText.setText("");
+            mDescription.setText("");
+
+        }
     }
 }

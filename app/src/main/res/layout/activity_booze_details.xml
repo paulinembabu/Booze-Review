@@ -63,18 +63,6 @@ xmlns:android="http://schemas.android.com/apk/res/android"
             android:textStyle="bold" />
 
 
-
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Tusker"-->
-            <!--android:id="@+id/categoryTextView"-->
-            <!--android:layout_below="@+id/beerNameTextView"-->
-            <!--android:layout_alignParentLeft="true"-->
-            <!--android:layout_alignParentStart="true"-->
-            <!--android:textColor="#000000"-->
-            <!--android:textStyle="italic" />-->
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -140,15 +128,7 @@ xmlns:android="http://schemas.android.com/apk/res/android"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <android.support.v7.widget.RecyclerView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:id="@+id/recyclerView2">
-
-                    </android.support.v7.widget.RecyclerView>
-
-
-                <ListView
+                <TextView
                     android:id="@+id/listView1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

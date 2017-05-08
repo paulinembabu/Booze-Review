@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.pauline.booze.ui.ListReviewedBeers">
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </RelativeLayout>
+
+    </ScrollView>
+
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="8dp"
+        android:background="#fff"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:text="Admiral Stache
+Tastes like lavender if lavender has taste
+Enjoyed the beer"
+        android:textColor="#000" />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp">
+
+
+    <TextView
+        android:id="@+id/listItems"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:background="#fff"
+        android:clickable="true"
+        android:elevation="4dp"
+        android:padding="10dp"
+        android:text="Tusker
+Acquired taste
+Liked the Taste though i tasted like wheet
+Enjoyed the beer"
+        android:textColor="#000" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp">
+
+
+        <TextView
+            android:id="@+id/text2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:background="#fff"
+            android:clickable="true"
+            android:elevation="4dp"
+            android:padding="10dp"
+            android:text="Mauvaises Choses
+Liked the  taste
+Wonderfully blened beer"
+            android:textColor="#000" />
+    </RelativeLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
